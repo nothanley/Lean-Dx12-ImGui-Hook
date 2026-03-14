@@ -14,9 +14,6 @@ This folder is a stripped standalone Visual Studio project for:
 Output:
 - `minimal_hook/bin/Release/reshade.asi`
 
-Post-build copy target:
-- `A:\SteamLibrary\steamapps\common\WWE 2K26\plugins\reshade.asi`
-
 ## Notes
 
 - This project intentionally avoids the old ReShade solution structure and props/import chain.
