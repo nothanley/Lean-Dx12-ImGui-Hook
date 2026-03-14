@@ -1,0 +1,4 @@
+#include "resource.h"
+#include <winresrc.h>
+
+IDR_MIPMAP_CS RCDATA "shaders\\mipmap_cs_5_0.cso"

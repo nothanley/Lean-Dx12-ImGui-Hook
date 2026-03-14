@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Core">
+      <UniqueIdentifier>{da3020f0-0f1f-442f-b571-bd3b89d62ff7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Overlay">
+      <UniqueIdentifier>{447479f3-80ef-4dc1-89a9-34902db72f2a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources">
+      <UniqueIdentifier>{c9ce2c09-b310-4ca9-80df-f125d6caeb25}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="D3D12">
+      <UniqueIdentifier>{70f6772c-3792-45a5-aafd-a45a5990c45a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\IMGUI">
+      <UniqueIdentifier>{fe0dd40b-3a14-48ad-aef1-aded7e51e5fe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\hook">
+      <UniqueIdentifier>{3ba89515-a0c0-47c0-a071-ed5379a18779}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\dll_log.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\dll_main.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\dll_resources.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\runtime_manager.cpp">
+      <Filter>Core\Overlay</Filter>
+    </ClCompile>
+    <ClCompile Include="src\user_overlay.cpp">
+      <Filter>Core\Overlay</Filter>
+    </ClCompile>
+    <ClCompile Include="src\d3d12\d3d12.cpp">
+      <Filter>D3D12</Filter>
+    </ClCompile>
+    <ClCompile Include="src\d3d12\d3d12_command_list.cpp">
+      <Filter>D3D12</Filter>
+    </ClCompile>
+    <ClCompile Include="src\d3d12\d3d12_command_queue.cpp">
+      <Filter>D3D12</Filter>
+    </ClCompile>
+    <ClCompile Include="src\d3d12\d3d12_command_queue_downlevel.cpp">
+      <Filter>D3D12</Filter>
+    </ClCompile>
+    <ClCompile Include="src\d3d12\d3d12_descriptor_heap.cpp">
+      <Filter>D3D12</Filter>
+    </ClCompile>
+    <ClCompile Include="src\d3d12\d3d12_device.cpp">
+      <Filter>D3D12</Filter>
+    </ClCompile>
+    <ClCompile Include="src\d3d12\d3d12_device_downlevel.cpp">
+      <Filter>D3D12</Filter>
+    </ClCompile>
+    <ClCompile Include="src\d3d12\d3d12_extensions.cpp">
+      <Filter>D3D12</Filter>
+    </ClCompile>
+    <ClCompile Include="src\d3d12\d3d12_impl_command_list.cpp">
+      <Filter>D3D12</Filter>
+    </ClCompile>
+    <ClCompile Include="src\d3d12\d3d12_impl_command_list_immediate.cpp">
+      <Filter>D3D12</Filter>
+    </ClCompile>
+    <ClCompile Include="src\d3d12\d3d12_impl_command_queue.cpp">
+      <Filter>D3D12</Filter>
+    </ClCompile>
+    <ClCompile Include="src\d3d12\d3d12_impl_device.cpp">
+      <Filter>D3D12</Filter>
+    </ClCompile>
+    <ClCompile Include="src\d3d12\d3d12_impl_swapchain.cpp">
+      <Filter>D3D12</Filter>
+    </ClCompile>
+    <ClCompile Include="src\d3d12\d3d12_impl_type_convert.cpp">
+      <Filter>D3D12</Filter>
+    </ClCompile>
+    <ClCompile Include="src\d3d12\d3d12_pipeline_library.cpp">
+      <Filter>D3D12</Filter>
+    </ClCompile>
+    <ClCompile Include="src\d3d12\d3d12_pix.cpp">
+      <Filter>D3D12</Filter>
+    </ClCompile>
+    <ClCompile Include="src\d3d12\d3d12_resource.cpp">
+      <Filter>D3D12</Filter>
+    </ClCompile>
+    <ClCompile Include="src\dxgi\dxgi.cpp">
+      <Filter>D3D12</Filter>
+    </ClCompile>
+    <ClCompile Include="src\dxgi\dxgi_adapter.cpp">
+      <Filter>D3D12</Filter>
+    </ClCompile>
+    <ClCompile Include="src\dxgi\dxgi_device.cpp">
+      <Filter>D3D12</Filter>
+    </ClCompile>
+    <ClCompile Include="src\dxgi\dxgi_factory.cpp">
+      <Filter>D3D12</Filter>
+    </ClCompile>
+    <ClCompile Include="src\dxgi\dxgi_swapchain.cpp">
+      <Filter>D3D12</Filter>
+    </ClCompile>
+    <ClCompile Include="third_party\minhook\src\buffer.c">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="third_party\imgui\imgui.cpp">
+      <Filter>Core\IMGUI</Filter>
+    </ClCompile>
+    <ClCompile Include="third_party\imgui\imgui_config.cpp">
+      <Filter>Core\IMGUI</Filter>
+    </ClCompile>
+    <ClCompile Include="third_party\imgui\imgui_draw.cpp">
+      <Filter>Core\IMGUI</Filter>
+    </ClCompile>
+    <ClCompile Include="third_party\imgui\imgui_impl_dx12.cpp">
+      <Filter>Core\IMGUI</Filter>
+    </ClCompile>
+    <ClCompile Include="third_party\imgui\imgui_tables.cpp">
+      <Filter>Core\IMGUI</Filter>
+    </ClCompile>
+    <ClCompile Include="third_party\imgui\imgui_widgets.cpp">
+      <Filter>Core\IMGUI</Filter>
+    </ClCompile>
+    <ClCompile Include="third_party\minhook\src\trampoline.c">
+      <Filter>Core\hook</Filter>
+    </ClCompile>
+    <ClCompile Include="src\hook_manager.cpp">
+      <Filter>Core\hook</Filter>
+    </ClCompile>
+    <ClCompile Include="third_party\minhook\src\hde\hde64.c">
+      <Filter>Core\hook</Filter>
+    </ClCompile>
+    <ClCompile Include="third_party\minhook\src\hook.c">
+      <Filter>Core\hook</Filter>
+    </ClCompile>
+    <ClCompile Include="src\hook.cpp">
+      <Filter>Core\hook</Filter>
+    </ClCompile>
+    <ClCompile Include="third_party\minhook\src\hde\hde32.c">
+      <Filter>Core\hook</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="res\resource.rc">
+      <Filter>Resources</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>

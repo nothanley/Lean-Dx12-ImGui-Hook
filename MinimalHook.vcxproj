@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{4F117663-61E0-4173-B5F2-9F69474B87EF}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings" />
+  <ImportGroup Label="Shared" />
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <OutDir>$(ProjectDir)bin\$(Configuration)\</OutDir>
+    <IntDir>$(ProjectDir)intermediate\$(Configuration)\</IntDir>
+    <TargetName>reshade</TargetName>
+    <TargetExt>.asi</TargetExt>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <ObjectFileName>$(IntDir)%(RelativeDir)</ObjectFileName>
+      <AdditionalIncludeDirectories>$(ProjectDir)src;$(ProjectDir)include;$(ProjectDir)res;$(ProjectDir)third_party\imgui;$(ProjectDir)third_party\imgui\backends;$(ProjectDir)third_party\minhook\include;$(ProjectDir)third_party\utfcpp\source;$(ProjectDir)third_party\vma\include;$(ProjectDir)third_party\d3d12\include\directx;$(ProjectDir)third_party\d3d911on12\include;$(ProjectDir)third_party\d3d12on7\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32_LEAN_AND_MEAN;NOMINMAX;_GDI32_;WINSOCK_API_LINKAGE=;RESHADE_GUI;RESHADE_ADDON=0;ImTextureID=ImU64;IMGUI_USER_CONFIG="imgui_config.hpp";IMGUI_DEFINE_MATH_OPERATORS;IMGUI_DISABLE_OBSOLETE_FUNCTIONS;IMGUI_DISABLE_FILE_FUNCTIONS;IMGUI_DISABLE_WIN32_DEFAULT_IME_FUNCTIONS;UTF_CPP_CPLUSPLUS=201703L;VMA_STATIC_VULKAN_FUNCTIONS=0;VMA_DYNAMIC_VULKAN_FUNCTIONS=0;VMA_STATS_STRING_ENABLED=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <FloatingPointModel>Fast</FloatingPointModel>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <AdditionalOptions>/utf-8 %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <AdditionalDependencies>d3d12.lib;dxgi.lib;d3dcompiler.lib;dwmapi.lib;dxguid.lib;ShLwApi.lib;Version.lib;wininet.lib;WinMM.lib;WS2_32.lib;Xinput9_1_0.lib;delayimp.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <DelayLoadDLLs>D3DCompiler_47.dll;WinMM.dll;XInput9_1_0.dll;%(DelayLoadDLLs)</DelayLoadDLLs>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <PreprocessorDefinitions>RESHADE_VERBOSE_LOG;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <LinkIncremental>true</LinkIncremental>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <ExceptionHandling>false</ExceptionHandling>
+      <RuntimeTypeInfo>false</RuntimeTypeInfo>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <LinkIncremental>false</LinkIncremental>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
+    </Link>
+    <PostBuildEvent>
+      <Command>if not exist "A:\SteamLibrary\steamapps\common\WWE 2K26\plugins" mkdir "A:\SteamLibrary\steamapps\common\WWE 2K26\plugins"
+copy /Y "$(TargetPath)" "A:\SteamLibrary\steamapps\common\WWE 2K26\plugins\reshade.asi"</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="src\dll_log.cpp" />
+    <ClCompile Include="src\dll_main.cpp" />
+    <ClCompile Include="src\dll_resources.cpp" />
+    <ClCompile Include="src\hook.cpp" />
+    <ClCompile Include="src\hook_manager.cpp" />
+    <ClCompile Include="src\runtime_manager.cpp" />
+    <ClCompile Include="src\user_overlay.cpp" />
+    <ClCompile Include="src\d3d12\d3d12.cpp" />
+    <ClCompile Include="src\d3d12\d3d12_command_list.cpp" />
+    <ClCompile Include="src\d3d12\d3d12_command_queue.cpp" />
+    <ClCompile Include="src\d3d12\d3d12_command_queue_downlevel.cpp" />
+    <ClCompile Include="src\d3d12\d3d12_descriptor_heap.cpp" />
+    <ClCompile Include="src\d3d12\d3d12_device.cpp" />
+    <ClCompile Include="src\d3d12\d3d12_device_downlevel.cpp" />
+    <ClCompile Include="src\d3d12\d3d12_extensions.cpp" />
+    <ClCompile Include="src\d3d12\d3d12_impl_command_list.cpp" />
+    <ClCompile Include="src\d3d12\d3d12_impl_command_list_immediate.cpp" />
+    <ClCompile Include="src\d3d12\d3d12_impl_command_queue.cpp" />
+    <ClCompile Include="src\d3d12\d3d12_impl_device.cpp" />
+    <ClCompile Include="src\d3d12\d3d12_impl_swapchain.cpp" />
+    <ClCompile Include="src\d3d12\d3d12_impl_type_convert.cpp" />
+    <ClCompile Include="src\d3d12\d3d12_pipeline_library.cpp" />
+    <ClCompile Include="src\d3d12\d3d12_pix.cpp" />
+    <ClCompile Include="src\d3d12\d3d12_resource.cpp" />
+    <ClCompile Include="src\dxgi\dxgi.cpp" />
+    <ClCompile Include="src\dxgi\dxgi_adapter.cpp" />
+    <ClCompile Include="src\dxgi\dxgi_device.cpp" />
+    <ClCompile Include="src\dxgi\dxgi_factory.cpp" />
+    <ClCompile Include="src\dxgi\dxgi_swapchain.cpp" />
+    <ClCompile Include="third_party\minhook\src\buffer.c" />
+    <ClCompile Include="third_party\minhook\src\hook.c" />
+    <ClCompile Include="third_party\minhook\src\trampoline.c" />
+    <ClCompile Include="third_party\minhook\src\hde\hde32.c" />
+    <ClCompile Include="third_party\minhook\src\hde\hde64.c" />
+    <ClCompile Include="third_party\imgui\imgui.cpp" />
+    <ClCompile Include="third_party\imgui\imgui_draw.cpp" />
+    <ClCompile Include="third_party\imgui\imgui_tables.cpp" />
+    <ClCompile Include="third_party\imgui\imgui_widgets.cpp" />
+    <ClCompile Include="third_party\imgui\imgui_config.cpp" />
+    <ClCompile Include="third_party\imgui\imgui_impl_dx12.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="res\resource.rc" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets" />
+</Project>
