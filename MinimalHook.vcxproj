@@ -93,8 +93,8 @@
       <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
     </Link>
     <PostBuildEvent>
-      <Command>if not exist "A:\SteamLibrary\steamapps\common\WWE 2K26\plugins" mkdir "A:\SteamLibrary\steamapps\common\WWE 2K26\plugins"
-copy /Y "$(TargetPath)" "A:\SteamLibrary\steamapps\common\WWE 2K26\plugins\reshade.asi"</Command>
+      <Command>
+      </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
